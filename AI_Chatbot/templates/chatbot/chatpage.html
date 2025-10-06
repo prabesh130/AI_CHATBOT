@@ -1,0 +1,17 @@
+
+{% extends "accounts/base.html" %}
+{% block title %}AI Chatbot Home {% endblock %}
+{% block content %}
+     <h1> Welcome to the AI Chatbot</h1>
+     
+     {% if user.is_authenticated %}
+         <p>Welcome back! You are logged in.</p>
+         <a href="{% url 'chat' %}" class="btn btn-success">Go to Chat</a> 
+         <a href="{% url 'logout' %}" class="btn btn-danger">Log Out</a>
+     {% else %}
+         <p>Please register or login in to start Chatting</p>
+         <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+         <a href="{% url 'login' %}" class="btn btn-secondary">Log In</a>
+     {% endif %}
+     
+{% endblock %}

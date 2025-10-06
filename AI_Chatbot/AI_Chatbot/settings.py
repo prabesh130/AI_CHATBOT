@@ -83,7 +83,7 @@ DATABASES = {
         'USER':'chatbot_user',
         'PASSWORD':'9862136711',
         'HOST': 'localhost',
-        'PORT':'8000'
+        'PORT':'5432'
     }
 }
 

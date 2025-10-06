@@ -6,7 +6,7 @@ from django.contrib import messages
 # Create your views here.
 def register_view(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('chatpage')
     
     if request.method=='POST':
         form=RegistrationForm(request.POST)
@@ -14,8 +14,8 @@ def register_view(request):
             user=form.save()
             username=form.cleaned_data.get('username')
             messages.success(request,f'Account created sucessfully for {username}!')
-            login(request,user)
-            return redirect('home')
+            
+            return redirect('login')
         else:
             for field,errors in form.errors.items():
                 for error in errors:
@@ -27,7 +27,7 @@ def register_view(request):
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('chatpage')
     
     if request.method=='POST':
         form=LoginForm(request,data=request.POST)
@@ -38,7 +38,7 @@ def login_view(request):
             if user is not None:
                 login(request,user)
                 messages.success(request,f'Welcome back {username}!')
-                return redirect('home')
+                return redirect('chatpage')
         else:
                 messages.error(request,'Invalid username or password')
     else:
