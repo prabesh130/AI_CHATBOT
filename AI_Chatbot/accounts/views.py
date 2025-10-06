@@ -50,6 +50,6 @@ def logoutview(request):
     logout(request)
     messages.success(request,'You have been logged out successfully')
     return redirect('login')
-@login_required
+
 def home_view(request):
-    return render(request,'accounts/home.html',{'user':request.user})
+    return render(request,'home.html',{})
