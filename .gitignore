@@ -1,5 +1,27 @@
-venv/ 
+# -------------------------------------------------------------------
+# 1. Virtual Environment (The most important part)
+# -------------------------------------------------------------------
+# Standard names for virtual environment folders
+venv/
+env/
+.venv/
+.env
+
+# -------------------------------------------------------------------
+# 2. Python-specific files
+# -------------------------------------------------------------------
+# Byte-compiled files
 __pycache__/
 *.pyc
-.env
+*.pyd
+*.so
+
+# -------------------------------------------------------------------
+# 3. Operating System / IDE Files
+# -------------------------------------------------------------------
+# Visual Studio Code (VS Code) settings
 .vscode/
+
+# Operating system files (macOS, Windows, etc.)
+.DS_Store
+Thumbs.db
