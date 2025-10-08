@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'chatbot',
     'accounts',
     'rest_framework',
-    'rest_framwork_simplejwt',
+    'rest_framework_simplejwt',
     'corsheaders',
 ]
 
