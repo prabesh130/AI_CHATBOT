@@ -6,7 +6,7 @@
      
      {% if user.is_authenticated %}
          <p>Welcome back! You are logged in.</p>
-         <a href="{% url 'chat' %}" class="btn btn-success">Go to Chat</a> 
+         <a href="{% url 'chatpage' %}" class="btn btn-success">Go to Chat</a> 
          <a href="{% url 'logout' %}" class="btn btn-danger">Log Out</a>
      {% else %}
          <p>Please register or login in to start Chatting</p>

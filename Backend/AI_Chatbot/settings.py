@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chatbot',
     'accounts',
+    'rest_framework',
+    'rest_framwork_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
