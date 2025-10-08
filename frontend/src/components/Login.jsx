@@ -4,9 +4,9 @@ import axios from 'axios'
 
 export default function Login() {
     const navigate = useNavigate
-    const [message, setMessage] = ''
+    const [message, setMessage] = useState('')
     const [form, setForm] = useState({
-        email: '',
+        username: '',
         password: ''
     })
 
@@ -17,7 +17,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:5000/api/login', form)
+            const response = await axios.post('http://127.0.0.1:8000/login/', form)
             console.log(response.data)
         } catch (error) {
             setMessage("SERVER IS NOT ONLINE")
@@ -40,11 +40,11 @@ export default function Login() {
                     </div >
                     <form className="flex flex-col  space-y-3 bg-[#eafaea] p-3 w-full max-w-sm mb-3" onSubmit={handleSubmit}>
                         <input
-                            type="email"
-                            name="email"
-                            value={form.email}
+                            type="text"
+                            name="username"
+                            value={form.username}
                             onChange={handleChange}
-                            placeholder="Email"
+                            placeholder="Username"
                             required
                             className="p-2 w-[300px] border bg-[#eafaea] border-gray-300 rounded-xl"
                         />
