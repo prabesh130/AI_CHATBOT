@@ -37,7 +37,41 @@ yarn-error.log*
 .env.production.local
 
 # -------------------------------------------------------------------
-# 5. Other
+# 5. Machine Learning / Training Data (DO NOT UPLOAD)
+# -------------------------------------------------------------------
+# Training data folders
+AI_Chatbot/data/
+AI_Chatbot/checkpoints/
+data/training_data/
+checkpoints/
+
+# Model files (large binary files)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.h5
+
+# Training logs and experiments
+runs/
+wandb/
+lightning_logs/
+tensorboard/
+logs/
+
+# Dataset files (can be regenerated)
+*.jsonl
+*.csv
+*.parquet
+
+# Tokenizer vocab files (optional - keep if custom trained)
+# vocab.json
+# merges.txt
+# tokenizer.json
+
+# -------------------------------------------------------------------
+# 6. Other
 # -------------------------------------------------------------------
 # Logs
 *.log
