@@ -22,8 +22,8 @@ class DataCollection:
         try:
             dataset = load_dataset('koutch/stackoverflow_python',
                                    split='train',
-                                   streaming=True)
-
+                                   )
+            seen=set()
             data = []
             for i, item in enumerate(tqdm(dataset, total=num_samples)):
                 if i >= num_samples:
@@ -31,9 +31,18 @@ class DataCollection:
                 title=item.get('title','').strip()
                 question_body=item.get("question_body",'').strip()
                 answer_body=item.get("answer_body",'').strip()
-                
+                tags=item.get('tags',[])
+                is_accepted=item.get('is_accepted_answer',False)
+                score=item.get('score',0)
+
                 if not question_body or not answer_body:
                     continue
+                if not is_accepted and score<0:
+                    continue
+                key=hash(question_body+answer_body)
+                if key in seen:
+                    continue
+                seen.add(key)
                 question=f'{title}\n{question_body}'.strip()
                 answer=answer_body
                 if 20 < len(question) < 2000 and 20 < len(answer) < 3000:
